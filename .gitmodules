@@ -1,0 +1,3 @@
+[submodule ".zgen/chrissicool/zsh-256color"]
+	path = .zgen/chrissicool/zsh-256color-master/zsh-256color
+	url = https://github.com/chrissicool/zsh-256color.git
