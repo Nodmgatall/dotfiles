@@ -130,22 +130,31 @@ alias steam-win='bash -c "cd .wine/drive_c/Program\ Files/Steam/ && wine steam.e
 # MPI aliases
 alias cdosrc='cd ~/Coding/MPI/cdo/src'
 alias cdomain='cd ~/Coding/MPI/cdo'
-alias cdoclangpp='./configure CC="clang" CXX="clang++ -std=c++11" CFLAGS=" -g -Wall -ldl -Wfloat-equal -pedantic -O3" --enable-cxx --with-netcdf --with-netcdf4 --with-grib-api --disable-cf-interface --with-libxml2'
-alias cdogpp='alias cdogpp && ./configure CC="gcc" CXX="g++" CFLAGS="-std=c++11 -g -Wall -Wfloat-equal -pedantic -O3" LDFLAGS=-ldl'
+alias cdoclangpp='./configure CC="clang" CXX="clang++ -std=c++11" CFLAGS=" -g -Wall -ldl -Wfloat-equal -pedantic -O3" --with-netcdf --with-netcdf4 --with-grib-api --disable-cf-interface --with-libxml2'
+alias cdogppall='alias cdogpp && ./configure CC="gcc" CXX="g++ -std=c++11" CFLAGS="-g -Wall
+-Wfloat-equal -pedantic -O3"--enable-proj --with-netcdf --with-netcdf4 --with-grib-api --disable-cf-interface --with-libxml2 LDFLAGS=-ldl'
+alias cdogpp='alias cdogpp && ./configure CC="gcc" CXX="g++ -std=c++11" CFLAGS="-g -Wall -Wfloat-equal -pedantic -O3" LDFLAGS=-ldl'
 #--with-netcdf --with-hdf5=no --with-grib-api --disable-cf-interface --with-libxml2 '
-alias reloadzsh='alias reloadzsh && . ~/.zshrc'
+alias reloadzsh='. ~/.zshrc' 
 alias cx='xclip'
 alias vx='xclip -o'
 alias sp='pwd | cx'
 alias pp='cd `vx`'
+alias go_to_last_folder='cd "$(cat ~/.last_pwd)"'
+alias ezshrc='vim ~/dotfiles/.zshrc'
 function cd(){
-    builtin cd $1 
-    pwd > ~/.last_pwd
+    builtin cd "$@";
+    echo "$PWD" > ~/.last_pwd
 }
+#============CDO-aliase==========
+alias mkcdo='cdo_mpi_src | make -j 8'
+alias mkacdo='cdo_mpi_main | make -j 8'
+alias mkccdo='cdo_mpi_main | make check - j 8'
 alias cdo_mpi_main='cd /scratch/local1/m300433/cdo'
-alias cdo_mpisrc='cd /scratch/local1/m300433/cdo/src'
+alias cdo_mpi_src='cd /scratch/local1/m300433/cdo/src'
 alias l='ls -a'
+alias x='exit'
 
 alias cdoicc='./configure CC=icpc CXX='icpc' CPP='icpc' CPPFLAGS='-std=c++11' CXXFLAGS='-std=c++11' CFLAGS='-Wl,--export-dynamic -ldl -g -Wall -Wfl -float-equal  -pedantic -O3' --enable-cxx --with-netcdf=/sw/jessie-x64/netcdf-4.3.3.1-gccsys --with-gr ib-api=/sw/jessie-x64/grib_api-1.14.3-gccsys --with-libxml2L '
 # Command to use the last known pwd as start folder for zsh
-cd "$(cat ~/.last_pwd)"
+builtin cd "$(cat ~/.last_pwd)"
