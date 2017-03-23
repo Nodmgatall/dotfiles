@@ -128,11 +128,19 @@ alias mount-mnt0='sshfs -p 225 svenstaro.crabdance.com:/media/data1 mnt0/'
 eval "$(fasd --init auto)"
 alias j='fasd_cd -d'
 
-#Coding projects aliases
-alias partsim='cd ~/Coding/Uni_HH_Projekt2016_Particle_Simulation'
-
 # MPI aliases
 alias cdosrc='cd ~/Coding/MPI/cdo/src'
 alias cdomain='cd ~/Coding/MPI/cdo'
-alias cdoclangpp='./configure CC="clang" CXX="clang++ -std=c++11" CFLAGS=" -g -Wall -Wfloat-equal -pedantic -O3" --enable-cxx --with-netcdf --with-netcdf4 --with-grib-api --disable-cf-interface --with-libxml2'
-alias cdogpp='./configure CC="gcc" CXX="g++" CFLAGS="-std=c++11 -g -Wall -Wfloat-equal -pedantic -O3" --enable-cxx --with-netcdf --with-netcdf4 --with-grib-api --disable-cf-interface --with-libxml2'
+alias cdoclangpp='./configure CC="clang" CXX="clang++ -std=c++11" CFLAGS=" -g -Wall -ldl -Wfloat-equal -pedantic -O3" --enable-cxx --with-netcdf --with-netcdf4 --with-grib-api --disable-cf-interface --with-libxml2'
+alias cdogpp='alias cdogpp && ./configure CC="gcc" CXX="g++" CFLAGS="-std=c++11 -g -Wall -Wfloat-equal -pedantic -O3" LDFLAGS=-ldl'
+#--with-netcdf --with-hdf5=no --with-grib-api --disable-cf-interface --with-libxml2 '
+alias reloadzsh='alias reloadzsh && . ~/.zshrc'
+alias cx='xclip'
+alias vx='xclip -o'
+alias sp='pwd | cx'
+alias pp='cd `vx`'
+function cd(){
+    builtin cd $1 
+    pwd > ~/.last_pwd
+}
+cd "$(cat ~/.last_pwd)"
