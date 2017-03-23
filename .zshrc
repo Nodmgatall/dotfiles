@@ -144,6 +144,7 @@ function cd(){
 }
 alias cdo_mpi_main='cd /scratch/local1/m300433/cdo'
 alias cdo_mpisrc='cd /scratch/local1/m300433/cdo/src'
+alias l='ls -a'
 
 alias cdoicc='./configure CC=icpc CXX='icpc' CPP='icpc' CPPFLAGS='-std=c++11' CXXFLAGS='-std=c++11' CFLAGS='-Wl,--export-dynamic -ldl -g -Wall -Wfl -float-equal  -pedantic -O3' --enable-cxx --with-netcdf=/sw/jessie-x64/netcdf-4.3.3.1-gccsys --with-gr ib-api=/sw/jessie-x64/grib_api-1.14.3-gccsys --with-libxml2L '
 # Command to use the last known pwd as start folder for zsh
