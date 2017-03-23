@@ -121,7 +121,6 @@ alias db-update-community='ssh nymeria.archlinux.org /community/db-update'
 alias pyserve='python -m http.server'
 alias irc='ssh -C oracle -t "tmux attach"'
 alias steam-win='bash -c "cd .wine/drive_c/Program\ Files/Steam/ && wine steam.exe -no-dwrite"'
-alias mount-mnt0='sshfs -p 225 svenstaro.crabdance.com:/media/data1 mnt0/'
 
 
 # fasd
@@ -143,4 +142,9 @@ function cd(){
     builtin cd $1 
     pwd > ~/.last_pwd
 }
+alias cdo_mpi_main='cd /scratch/local1/m300433/cdo'
+alias cdo_mpisrc='cd /scratch/local1/m300433/cdo/src'
+
+alias cdoicc='./configure CC=icpc CXX='icpc' CPP='icpc' CPPFLAGS='-std=c++11' CXXFLAGS='-std=c++11' CFLAGS='-Wl,--export-dynamic -ldl -g -Wall -Wfl -float-equal  -pedantic -O3' --enable-cxx --with-netcdf=/sw/jessie-x64/netcdf-4.3.3.1-gccsys --with-gr ib-api=/sw/jessie-x64/grib_api-1.14.3-gccsys --with-libxml2L '
+# Command to use the last known pwd as start folder for zsh
 cd "$(cat ~/.last_pwd)"
