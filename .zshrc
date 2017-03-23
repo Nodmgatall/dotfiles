@@ -124,8 +124,8 @@ alias steam-win='bash -c "cd .wine/drive_c/Program\ Files/Steam/ && wine steam.e
 
 
 # fasd
-eval "$(fasd --init auto)"
-alias j='fasd_cd -d'
+#eval "$(fasd --init auto)"
+#alias j='fasd_cd -d'
 
 # MPI aliases
 alias cdosrc='cd ~/Coding/MPI/cdo/src'
