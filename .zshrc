@@ -131,11 +131,10 @@ alias steam-win='bash -c "cd .wine/drive_c/Program\ Files/Steam/ && wine steam.e
 alias cdosrc='cd ~/Coding/MPI/cdo/src'
 alias cdomain='cd ~/Coding/MPI/cdo'
 alias cdoclangpp='./configure CC="clang" CXX="clang++ -std=c++11" CFLAGS=" -g -Wall -ldl -Wfloat-equal -pedantic -O3" --with-netcdf --with-netcdf4 --with-grib-api --disable-cf-interface --with-libxml2'
-alias cdogppall='alias cdogpp && ./configure CC="gcc" CXX="g++ -std=c++11" CFLAGS="-g -Wall
--Wfloat-equal -pedantic -O3"--enable-proj --with-netcdf --with-netcdf4 --with-grib-api --disable-cf-interface --with-libxml2 LDFLAGS=-ldl'
+alias cdogppall='alias cdogpp && ./configure CC="gcc" CXX="g++ -std=c++11" CFLAGS="-g -Wall -Wfloat-equal -pedantic -O3" --enable-proj --with-grib-api --disable-cf-interface --with-libxml2 LDFLAGS=-ldl'
 alias cdogpp='alias cdogpp && ./configure CC="gcc" CXX="g++ -std=c++11" CFLAGS="-g -Wall -Wfloat-equal -pedantic -O3" LDFLAGS=-ldl'
 #--with-netcdf --with-hdf5=no --with-grib-api --disable-cf-interface --with-libxml2 '
-alias reloadzsh='. ~/.zshrc' 
+alias rldzsh='. ~/.zshrc' 
 alias cx='xclip'
 alias vx='xclip -o'
 alias sp='pwd | cx'
